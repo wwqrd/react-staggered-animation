@@ -1,4 +1,4 @@
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import ReactTransitionGroup from 'react-transition-group';
 import React, { PropTypes } from 'react';
 import kebabCase from 'lodash.kebabcase';
 import cx from 'classnames';
@@ -54,15 +54,15 @@ export class StaggeredAnimation extends React.Component {
 
     // Injects the styles alongside the child elements in a <style> tag.
     return (
-      <ReactCSSTransitionGroup className={className} transitionName={transitionName} transitionAppear transitionAppearTimeout={totalTime} transitionEnterTimeout={totalTime} transitionLeaveTimeout={totalTime}>
+      <ReactTransitionGroup className={className} transitionName={transitionName} transitionAppear transitionAppearTimeout={totalTime} transitionEnterTimeout={totalTime} transitionLeaveTimeout={totalTime}>
         {arrChildren.length && <style dangerouslySetInnerHTML={{ __html: css(styles) }} />}
         {styledChildren}
-      </ReactCSSTransitionGroup>
+      </ReactTransitionGroup>
     );
   }
 }
 
-StaggeredAnimation.propTypes = Object.assign({}, ReactCSSTransitionGroup.propTypes, {
+StaggeredAnimation.propTypes = Object.assign({}, ReactTransitionGroup.propTypes, {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
